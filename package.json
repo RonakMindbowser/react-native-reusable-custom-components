@@ -1,6 +1,6 @@
 {
   "name": "react-native-reusable-custom-components",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Custom and reusable components for react-native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -34,9 +34,14 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "custom-components",
+    "reusable-components"
   ],
-  "repository": "https://github.com/RonakMindbowser/react-native-reusable-custom-components",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RonakMindbowser/react-native-reusable-custom-components.git"
+  },
   "author": "RonakKotak-MindBowser <ronak.kotak@mindbowser.com> (https://github.com/RonakMindbowser)",
   "license": "MIT",
   "bugs": {
@@ -143,5 +148,8 @@
         }
       ]
     ]
+  },
+  "directories": {
+    "example": "example"
   }
 }
