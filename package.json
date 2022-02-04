@@ -1,6 +1,6 @@
 {
   "name": "react-native-reusable-custom-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Custom and reusable components for react-native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

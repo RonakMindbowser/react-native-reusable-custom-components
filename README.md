@@ -11,11 +11,12 @@ npm install react-native-reusable-custom-components
 ## Usage
 
 ```js
-import { multiply } from "react-native-reusable-custom-components";
+import { multiply ,add } from "react-native-reusable-custom-components";
 
 // ...
 
 const result = await multiply(3, 7);
+const response = await add(3, 7);
 ```
 
 ## Contributing
