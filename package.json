@@ -1,6 +1,6 @@
 {
   "name": "react-native-reusable-custom-components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Custom and reusable components for react-native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -36,7 +36,12 @@
     "ios",
     "android",
     "custom-components",
-    "reusable-components"
+    "reusable-components",
+    "custom-header",
+    "custom-button",
+    "custom-loader",
+    "scalable functions",
+    "iPhoneX helpers"
   ],
   "repository": {
     "type": "git",
