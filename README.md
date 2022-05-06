@@ -6,6 +6,8 @@ Custom and reusable components for react-native
 
 ```sh
 npm install react-native-reusable-custom-components
+OR
+yarn add react-native-reusable-custom-components
 ```
 
 ## Features
