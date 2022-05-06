@@ -18,6 +18,7 @@ yarn add react-native-reusable-custom-components
 5. Scalability Functions
 6. Helper Funcions
 7. Custom OTP TextInput
+8. CustomModal
 
 ## Usage
 
@@ -95,6 +96,22 @@ import { OTPTextInput, } from "react-native-reusable-custom-components"
     onCodeUpdate={(code) => {
      console.log("Code is--->", code)
     }}
+/>
+```
+## 8. CustomModal
+```js
+import {CustomModal,CustomButton } from "react-native-reusable-custom-components"
+
+ const [visible, setVisible] = useState(false)
+
+ <CustomButton
+    title='Next'
+    onPress={() => setVisible(true)}
+ />
+
+<CustomModal
+   visible={visible}
+   onRequestClose={() => setVisible(false)}
 />
 ```
 

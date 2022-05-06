@@ -2,6 +2,7 @@ import CustomButton from "./CustomButton";
 import CustomLoader from "./CustomLoader";
 import CustomHeader from "./Header";
 import OTPTextInput from "./OTPTextInput";
+import CustomModal from "./CustomModal";
 
 import { scale, verticalScale, moderateScale } from "./Scale";
 import { showSimpleAlert, isValidEmail, isValidPassword, getFileExtension, multiply, add, } from "./HelperFunction";
@@ -33,4 +34,5 @@ export {
   getBottomMoreSpace,
   iPhoneHelp,
   HelperFunction,
+  CustomModal,
 }
