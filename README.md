@@ -84,7 +84,7 @@ import { HelperFunction, } from "react-native-reusable-custom-components"
   }
 ```
 
-## 6. Helper Functions
+## 7. Helper Functions
 ```js
 import { OTPTextInput, } from "react-native-reusable-custom-components"
 
