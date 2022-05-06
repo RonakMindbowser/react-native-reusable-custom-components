@@ -37,7 +37,7 @@ const OTPTextInput: React.FC<Props> = ({
 
     const [value, setValue] = useState<any>("")
     const [digits, setDigits] = useState<any>(stringToArray(value))
-    const [selectedIndex, setSelectedIndex] = useState<number>(0)
+    const [selectedIndex, setSelectedIndex] = useState<number | null>(0)
     const textFieldRef = useRef<any>([])
 
     const onInputTextChange = (text: string, index: number) => {
@@ -56,6 +56,7 @@ const OTPTextInput: React.FC<Props> = ({
             setTimeout(() => {
                 if (index == otpCount - 1) {
                     Keyboard.dismiss()
+                    setSelectedIndex(null)
                 }
                 else {
                     textFieldRef.current[index + 1].focus()

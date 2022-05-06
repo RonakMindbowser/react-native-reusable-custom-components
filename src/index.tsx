@@ -5,7 +5,10 @@ import OTPTextInput from "./OTPTextInput";
 
 import { scale, verticalScale, moderateScale } from "./Scale";
 import { showSimpleAlert, isValidEmail, isValidPassword, getFileExtension, multiply, add, } from "./HelperFunction";
+import { isIphoneX, ifIphoneX, getStatusBarHeight, getBottomSpace, getBottomMoreSpace } from "./iPhoneHelp";
 
+import * as iPhoneHelp from "./iPhoneHelp";
+import * as HelperFunction from "./HelperFunction";
 /**
  * Exporting Components and methods
  */
@@ -22,5 +25,12 @@ export {
   showSimpleAlert,
   isValidEmail,
   isValidPassword,
-  getFileExtension
+  getFileExtension,
+  isIphoneX,
+  ifIphoneX,
+  getStatusBarHeight,
+  getBottomSpace,
+  getBottomMoreSpace,
+  iPhoneHelp,
+  HelperFunction,
 }
