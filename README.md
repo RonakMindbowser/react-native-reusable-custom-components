@@ -8,15 +8,92 @@ Custom and reusable components for react-native
 npm install react-native-reusable-custom-components
 ```
 
+## Features
+1. CustomHeader
+2. CustomButton
+3. CustomLoader
+4. iPhoneXHelper
+5. Scalability Functions
+6. Helper Funcions
+7. Custom OTP TextInput
+
 ## Usage
 
+## 1. CustomHeader
 ```js
-import { multiply ,add } from "react-native-reusable-custom-components";
+import { CustomHeader } from "react-native-reusable-custom-components"
 
-// ...
+ <CustomHeader
+    middleText='Home'
+    backButton
+ />
+```
 
-const result = await multiply(3, 7);
-const response = await add(3, 7);
+## 2. CustomButton
+```js
+import {  CustomButton, } from "react-native-reusable-custom-components"
+
+ <CustomButton
+    title='Next'
+    onPress={() => console.log("Pressed")}
+ />
+```
+
+## 3. CustomLoader
+```js
+import { CustomLoader } from "react-native-reusable-custom-components"
+
+ <CustomLoader loading />
+```
+## 4. iPhoneXHelper
+```js
+import { iPhoneHelp, } from "react-native-reusable-custom-components"
+
+  <View
+    style={{
+       marginBottom: iPhoneHelp.isIphoneX() ? 20 : 0
+    }}
+    />
+```
+
+## 5. Scalability Functions
+```js
+import { scale, verticalScale, moderateScale } from "react-native-reusable-custom-components"
+
+  <View
+    style={{
+          marginHorizontal: moderateScale(15),
+          marginVertical: verticalScale(20),
+          padding: scale(3)
+    }}
+    />
+```
+
+## 6. Helper Functions
+```js
+import { HelperFunction, } from "react-native-reusable-custom-components"
+
+  const checkValidation = async () => {
+    var email = "test@gmail.com"
+    var isValidmail = await HelperFunction.isValidEmail(email);
+    console.log("isValidmail-->", isValidmail);
+
+    var password = "Test123@"
+    var validPassword = await HelperFunction.isValidPassword(password);
+    console.log("validPassword-->", validPassword);
+  }
+```
+
+## 6. Helper Functions
+```js
+import { OTPTextInput, } from "react-native-reusable-custom-components"
+
+<OTPTextInput
+    otpCount={4}
+    onCodeUpdate={(code) => {
+     console.log("Code is--->", code)
+    }}
+/>
 ```
 
 ## Contributing
