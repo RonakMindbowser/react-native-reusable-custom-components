@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { View, TextInput, Keyboard, StyleSheet, ViewStyle, StyleProp, TextStyle } from 'react-native';
+import { View, TextInput, Keyboard, StyleSheet, ViewStyle, StyleProp, TextStyle, TextInputProps } from 'react-native';
 
 export interface Props {
     otpCount: number,
@@ -7,6 +7,11 @@ export interface Props {
     containerStyle: StyleProp<ViewStyle>,
     inputContainerStyle: StyleProp<TextStyle>,
     secureTextEntry: boolean,
+    textInputProps: TextInputProps,
+    activeBorderColor: string,
+    deactiveBorderColor: string,
+    activeBorderWidth: number,
+    deactiveBorderWidth: number,
 }
 
 const OTPTextInput: React.FC<Props> = ({
@@ -14,11 +19,16 @@ const OTPTextInput: React.FC<Props> = ({
     onCodeUpdate,
     inputContainerStyle,
     containerStyle,
-    secureTextEntry
+    secureTextEntry,
+    textInputProps,
+    activeBorderColor = "blue",
+    deactiveBorderColor = "black",
+    activeBorderWidth = 2,
+    deactiveBorderWidth = 1,
 }) => {
 
     const arrayToString = (list: []): string => {
-        return list.toString()
+        return list.join("")
     }
 
     const stringToArray = (str: string) => {
@@ -91,13 +101,19 @@ const OTPTextInput: React.FC<Props> = ({
     const renderOneInputField = (data: any, index: number) => {
         return (
             <TextInput
-                style={[styles.inputContainerStyle, { borderWidth: selectedIndex == index ? 2 : 1, borderColor: selectedIndex == index ? "blue" : "black", }, inputContainerStyle]}
+                style={
+                    [
+                        styles.inputContainerStyle,
+                        {
+                            borderWidth: selectedIndex == index ? activeBorderWidth : deactiveBorderWidth,
+                            borderColor: selectedIndex == index ? activeBorderColor : deactiveBorderColor,
+                        },
+                        inputContainerStyle]
+                }
                 placeholder={"#"}
                 placeholderTextColor={"gray"}
                 maxLength={1}
-                ref={(ref) => {
-                    textFieldRef.current[index] = ref
-                }}
+                ref={(ref) => { textFieldRef.current[index] = ref }}
                 keyboardType={'number-pad'}
                 onKeyPress={({ nativeEvent: { key } }) => { handleKeyPressTextInput(index, key, data) }}
                 editable={index == 0 ? true : getEditStatus(index)}
@@ -110,6 +126,7 @@ const OTPTextInput: React.FC<Props> = ({
                 blurOnSubmit={false}
                 returnKeyType={index == otpCount - 1 ? "done" : "next"}
                 secureTextEntry={secureTextEntry}
+                {...textInputProps}
             />
         )
     }
@@ -132,7 +149,9 @@ export default OTPTextInput;
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: "row", width: "60%", justifyContent: "space-between"
+        flexDirection: "row",
+        width: "60%",
+        justifyContent: "space-between"
     },
     inputContainerStyle: {
         height: 30,
@@ -143,5 +162,6 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         alignSelf: "center",
         textAlign: "center",
+        borderRadius: 5,
     }
 })
