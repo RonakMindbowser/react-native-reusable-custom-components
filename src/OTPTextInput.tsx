@@ -3,7 +3,7 @@ import { View, TextInput, Keyboard, StyleSheet, ViewStyle, StyleProp, TextStyle 
 
 export interface Props {
     otpCount: number,
-    onCodeUpdate: () => void,
+    onCodeUpdate: (code: string) => void,
     containerStyle: StyleProp<ViewStyle>,
     inputContainerStyle: StyleProp<TextStyle>,
     secureTextEntry: boolean,
@@ -17,7 +17,7 @@ const OTPTextInput: React.FC<Props> = ({
     secureTextEntry
 }) => {
 
-    const arrayToString = (list: []) => {
+    const arrayToString = (list: []): string => {
         return list.toString()
     }
 
@@ -25,8 +25,8 @@ const OTPTextInput: React.FC<Props> = ({
         return str.split("")
     }
 
-    const [value, setValue] = useState<string>("")
-    const [digits, setDigits] = useState(stringToArray(value))
+    const [value, setValue] = useState<any>("")
+    const [digits, setDigits] = useState<any>(stringToArray(value))
     const [selectedIndex, setSelectedIndex] = useState<number>(0)
     const textFieldRef = useRef<any>([])
 
@@ -67,8 +67,8 @@ const OTPTextInput: React.FC<Props> = ({
         else return false;
     }
 
-    const handleKeyPressTextInput = (index: number, key: string) => {
-
+    const handleKeyPressTextInput = (index: number, key: string, data: any) => {
+        console.log("Data:: ", data);
         if (key == "Backspace") {
             if (index > 0) {
                 textFieldRef.current[index - 1].focus()
@@ -99,7 +99,7 @@ const OTPTextInput: React.FC<Props> = ({
                     textFieldRef.current[index] = ref
                 }}
                 keyboardType={'number-pad'}
-                onKeyPress={({ nativeEvent: { key } }) => { handleKeyPressTextInput(index, key) }}
+                onKeyPress={({ nativeEvent: { key } }) => { handleKeyPressTextInput(index, key, data) }}
                 editable={index == 0 ? true : getEditStatus(index)}
                 value={digits[index] ? digits[index] : ""}
                 onChangeText={(text) => onInputTextChange(text, index)}
