@@ -1,4 +1,4 @@
-var RNFS = require('react-native-fs');
+import RNFS, { DownloadFileOptions } from "react-native-fs"
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, ImageBackground, Image, ImageSourcePropType, ImageResizeMode, StyleProp, ImageStyle, ViewStyle, ImageURISource } from 'react-native'
 
@@ -74,16 +74,18 @@ const CacheImage: React.FC<Props> = ({
         var filename = source?.uri?.replace(/^.*[\\\/]/, '')
         let imageCachePath = 'file://' + RNFS.CachesDirectoryPath + '/images/' + filename;
 
+        const options: DownloadFileOptions = {
+            fromUrl: source?.uri ? String(source.uri) : "",
+            toFile: imageCachePath
+        }
+
         RNFS.exists(imageCachePath).then((isImageExist: boolean) => {
             console.log("isImageExist ---482>", isImageExist);
             if (isImageExist) {
                 loadSuccessOfImage(imageCachePath)
             }
             else {
-                RNFS.downloadFile({
-                    fromUrl: source.uri,
-                    toFile: imageCachePath
-                }).promise.then((response: any) => {
+                RNFS.downloadFile(options).promise.then((response: any) => {
                     console.log("Response==985==>", response);
                     loadSuccessOfImage(imageCachePath)
                 }).catch(() => { loadFailureOfImage() })

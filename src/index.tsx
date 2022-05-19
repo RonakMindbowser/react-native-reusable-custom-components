@@ -36,5 +36,5 @@ export {
   iPhoneHelp,
   HelperFunction,
   CustomModal,
-  CacheImage,
+  CacheImage
 }
