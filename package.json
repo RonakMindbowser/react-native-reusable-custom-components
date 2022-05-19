@@ -80,7 +80,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-fs": "*"
   },
   "jest": {
     "preset": "react-native",
