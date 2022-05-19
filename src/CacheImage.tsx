@@ -19,7 +19,7 @@ export interface Props {
 }
 
 const CacheImage: React.FC<Props> = ({
-    source = { uri: "" },
+    source,
     resizeMode,
     defaultImageStyle,
     imageStyle,
